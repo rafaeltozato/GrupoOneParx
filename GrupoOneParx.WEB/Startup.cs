@@ -1,6 +1,7 @@
 ﻿using GrupoOneParx.Business.Interfaces;
 using GrupoOneParx.Data.Data;
 using GrupoOneParx.Data.Repository;
+using GrupoOneParx.WEB.Config;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -29,11 +30,10 @@ namespace GrupoOneParx.WEB
 
             services.AddAutoMapper(typeof(Startup));
 
-
             services.AddControllersWithViews();
 
             services.AddScoped<GrupoOneParxContext>();
-            services.AddScoped<IEmpresaRepository, EmpresaRepository>();
+            services.ResolveDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
